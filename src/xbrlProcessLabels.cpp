@@ -73,12 +73,14 @@ RcppExport SEXP xbrlProcessLabels(SEXP epaDoc) {
 				
 	xmlChar *tmp_str;
 	if ((tmp_str = xmlGetProp(loc_node, (xmlChar*) "href"))) {
-	  //	  string s1;
-	  //	  pcrecpp::RE re("^.*#(.+)$");
-	  //	  re.FullMatch(tmp_str, &s1);
 	  href[i] = (char *) tmp_str;
+	  string str = (char *) tmp_str;
 	  xmlFree(tmp_str);
-	  //	  elementId[i] = s1;
+	  size_t found = str.find("#");
+	  if (found != string::npos) {
+	    str.replace(0, found+1, "");
+	    elementId[i] = str;
+	  }
 	} else {
 	  href[i] = NA_STRING;
 	  elementId[i] = NA_STRING;

@@ -1,4 +1,4 @@
-\name{xbrlParse}
+\name{Low-level functions}
 \alias{xbrlParse}
 \alias{xbrlFree}
 \alias{xbrlGetSchemaName}
@@ -100,6 +100,7 @@ dname <- dirname(inst)
 docS <- xbrlParse(paste0(dname,"/",sch))
 ## Get roles:
 rls <- xbrlProcessRoles(docS)
+head(rls)
 ## Free the external memory used:
 xbrlFree(docS)
 }

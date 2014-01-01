@@ -74,21 +74,25 @@ RcppExport SEXP xbrlProcessArcs(SEXP epaDoc, SEXP arcTypeS) {
 	if (!xmlStrcmp(loc_label, typeArc_from)) {
 	  if ((tmp_str = xmlGetProp(loc_node, (xmlChar*) "href"))) { 
 	    fromHref[r] = (char *) tmp_str;
-	    //	    string s1;
-	    //	    pcrecpp::RE re("^.*#(.+)$");
-	    //	    re.FullMatch(tmp_str, &s1);
-	    //	    fromElementId[r] = s1;
+	    string str = (char *) tmp_str;
 	    xmlFree(tmp_str);
+	    size_t found = str.find("#");
+	    if (found != string::npos) {
+	      str.replace(0, found+1, "");
+	      fromElementId[r] = str;
+	    }
 	    matches++;
 	  }
 	} else if (!xmlStrcmp(loc_label, typeArc_to)) {
 	  if ((tmp_str = xmlGetProp(loc_node, (xmlChar*) "href"))) { 
 	    toHref[r] = (char *) tmp_str;
-	    //	    string s1;
-	    //	    pcrecpp::RE re("^.*#(.+)$");
-	    //	    re.FullMatch(tmp_str, &s1);
-	    //	    toElementId[r] = s1;
+	    string str = (char *) tmp_str;
 	    xmlFree(tmp_str);
+	    size_t found = str.find("#");
+	    if (found != string::npos) {
+	      str.replace(0, found+1, "");
+	      toElementId[r] = str;
+	    }
 	    matches++;
 	  }
 	}

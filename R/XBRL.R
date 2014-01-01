@@ -104,7 +104,7 @@ XBRL <- function() {
     linkbaseNames <- .Call("xbrlGetLinkbaseNames", doc, PACKAGE="XBRL")
     importNames <- .Call("xbrlGetImportNames", doc, PACKAGE="XBRL")
     .Call("xbrlFree", doc, PACKAGE="XBRL")
-    
+
     for (linkbaseName in linkbaseNames) {
       linkbaseName <- fixFileName(dname, linkbaseName)
       if (verbose) {
@@ -112,6 +112,7 @@ XBRL <- function() {
       }
       processLinkbase(linkbaseName, level+1)
     }
+
     for (importName in importNames) {
       importName <- fixFileName(dname, importName)
       if (verbose) {
@@ -126,7 +127,7 @@ XBRL <- function() {
       cat("Roles\n")
     }
     self$role <<- rbind(self$role,
-                        xbrlProcessRoles(doc))
+                        .Call("xbrlProcessRoles", doc, PACKAGE="XBRL"))
   }
   
   processElements <- function(doc) {
@@ -152,19 +153,22 @@ XBRL <- function() {
       file <- fileFromCache(file)
     }
     doc <- .Call("xbrlParse", file, PACKAGE="XBRL")
-    
-    if (!processLabels(doc))
-        if (!processPresentations(doc))
-            if (!processDefinitions(doc))
-                processCalculations(doc)
-    
+
+    ## We assume there can be only one type per linkbase file
+    if (!processLabels(doc)) {
+      if (!processPresentations(doc)) {
+        if (!processDefinitions(doc)) {
+          processCalculations(doc)
+        }
+      }
+    }
     .Call("xbrlFree", doc, PACKAGE="XBRL")
   }
   
   processLabels <- function(doc) {
     pre.length <- length(self$label)
     self$label <<- rbind(self$label,
-                         ans <- xbrlProcessLabels(doc))
+                         ans <- .Call("xbrlProcessLabels", doc, PACKAGE="XBRL"))
     if (!is.null(ans)) {
       if (verbose) {
         cat("Labels.\n")
@@ -177,7 +181,7 @@ XBRL <- function() {
   processPresentations <- function(doc) {
     pre.length <- length(self$presentation)
     self$presentation <<- rbind(self$presentation,
-                                ans <- xbrlProcessArcs(doc, "presentation"))
+                                ans <- .Call("xbrlProcessArcs", doc, "presentation", PACKAGE="XBRL"))
     if (!is.null(ans)) {
       if (verbose) {
         cat("Presentations.\n")
@@ -190,7 +194,7 @@ XBRL <- function() {
   processDefinitions <- function(doc) {
     pre.length <- length(self$definition)
     self$definition <<- rbind(self$definition,
-                              ans <- xbrlProcessArcs(doc, "definition"))
+                              ans <- .Call("xbrlProcessArcs", doc, "definition", PACKAGE="XBRL"))
     if (!is.null(ans)) {
       if (verbose) {
         cat("Definitions.\n")
@@ -203,7 +207,7 @@ XBRL <- function() {
   processCalculations <- function(doc) {
     pre.length <- length(self$calculation)
     self$calculation <<- rbind(self$calculation,
-                               ans <- xbrlProcessArcs(doc, "calculation"))
+                               ans <- .Call("xbrlProcessArcs", doc, "calculation", PACKAGE="XBRL"))
     if (!is.null(ans)) {
       if (verbose) {
         cat("Calculations.\n")
@@ -238,7 +242,7 @@ XBRL <- function() {
     if (verbose) {
       cat("Footnotes\n")
     }
-    self$footnote <<- xbrlProcessFootnotes(doc.inst)
+    self$footnote <<- .Call("xbrlProcessFootnotes", doc.inst, PACKAGE="XBRL")
   }
   
   closeInstance <- function() {

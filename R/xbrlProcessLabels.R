@@ -19,11 +19,5 @@
 
 
 xbrlProcessLabels <- function(doc) {
-  if (is.null(res <- .Call("xbrlProcessLabels", doc, PACKAGE="XBRL"))) {
-    return (res)
-  }
-  mtc <- regmatches(res$href,
-                    regexec("^.*#(.+)$", res$href))
-  res$elementId <- sapply(mtc, function(this) this[2])
-  res
+  .Call("xbrlProcessLabels", doc, PACKAGE="XBRL")
 }

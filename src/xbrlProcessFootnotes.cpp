@@ -72,12 +72,14 @@ RcppExport SEXP xbrlProcessFootnotes(SEXP epaDoc) {
 
 	xmlChar *tmp_str;
 	if ((tmp_str = xmlGetProp(loc_node, (xmlChar*) "href"))) {
-	  //	  string s1;
-	  //	  pcrecpp::RE re("^.*#(.+)$");
-	  //	  re.FullMatch(tmp_str, &s1);
 	  href[i] = (char *) tmp_str;
+	  string str = (char *) tmp_str;
 	  xmlFree(tmp_str);
-	  //	  factId[i] = s1;
+	  size_t found = str.find("#");
+	  if (found != string::npos) {
+	    str.replace(0, found+1, "");
+	    factId[i] = str;
+	  }
 	} else {
 	  href[i] = NA_STRING;
 	  factId[i] = NA_STRING;

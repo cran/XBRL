@@ -19,13 +19,5 @@
 
 
 xbrlProcessRoles <- function(doc) {
-  if (is.null(res <- .Call("xbrlProcessRoles", doc, PACKAGE="XBRL"))) {
-    return (res)
-  }
-  mtc <- regmatches(res$definition,
-                    regexec("^(\\d+) - ([^-]+) - (.+)$", res$definition))
-  res$order <- sapply(mtc, function(this) this[2])
-  res$type <- sapply(mtc, function(this) this[3])
-  res$description <- sapply(mtc, function(this) this[4])
-  res
+  .Call("xbrlProcessRoles", doc, PACKAGE="XBRL")
 }

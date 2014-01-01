@@ -19,14 +19,5 @@
 
 
 xbrlProcessArcs <- function(doc, arcType) {
-  if (is.null(res <- .Call("xbrlProcessArcs", doc, arcType, PACKAGE="XBRL"))) {
-    return (res)
-  }
-  mtc <- regmatches(res$fromHref,
-                    regexec("^.*#(.+)$", res$fromHref))
-  res$fromElementId <- sapply(mtc, function(this) this[2])
-  mtc <- regmatches(res$toHref,
-                    regexec("^.*#(.+)$", res$toHref))
-  res$toElementId <- sapply(mtc, function(this) this[2])
-  res
+  .Call("xbrlProcessArcs", doc, arcType, PACKAGE="XBRL")
 }

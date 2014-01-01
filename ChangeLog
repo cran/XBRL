@@ -1,5 +1,13 @@
+2014-03-01  Roberto Bertolusso  <rbertolusso@rice.edu>
+
+        * Release 0.99.11
+
+        * Removed need for regular expressions in compiled and R code
+          resulting in faster parsing of instance and DTS.
+
+
 2014-01-02  Roberto Bertolusso  <rbertolusso@rice.edu>
 
-        * Release 0.99.9
+        * Release 0.99.10
 
         * Initial Release

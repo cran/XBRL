@@ -54,13 +54,17 @@ RcppExport SEXP xbrlProcessRoles(SEXP epaDoc) {
       }
       if ((tmp_str = xmlNodeListGetString(doc, child_node->xmlChildrenNode, 1))) {
 	definition[i] = (char *) tmp_str;
-	//      string s1, s2, s3;
-	//      pcrecpp::RE re("^(\\d+) - ([^-]+) - (.+)$");
-	//      re.FullMatch(tmp_str, &s1, &s2, &s3);
+	string str = (char *) tmp_str;
 	xmlFree(tmp_str);
-	//      order[i] = s1;
-	//      type[i] = s2;
-	//      description[i] = s3;
+	size_t found1 = str.find(" - ");
+	if (found1 != string::npos) {
+	  order[i] = str.substr(0, found1);
+	  size_t found2 = str.find(" - ", found1+3);
+	  if (found2 != string::npos) {
+	    type[i] = str.substr(found1+3, found2-found1-3);
+	    description[i] = str.substr(found2+3);
+	  }
+	}
       }
 
       break;

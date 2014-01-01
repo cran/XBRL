@@ -1,2 +1,3 @@
 useDynLib(XBRL)
+importFrom(Rcpp)
 exportPattern("^[[:alpha:]]+")

@@ -5,40 +5,38 @@
 \description{
   XBRL is a package suited to extract business financial information from
   an Extensible Business Reporting Language (XBRL) instance file and the
-  associated collection of files that define its Discoverable Taxonomy
-  Set (DTS). These files are usually distributed across several
-  different locations.
+  associated collection of files that defines its Discoverable Taxonomy
+  Set (DTS). These files are usually disseminated across different remote
+  locations.
 
-  XBRL documents employ several technologies defined by XML standards,
-  which make the extraction of information difficult. The functions
-  provided by this package deal with this complexity, returning data
-  frames that offer a simpler version of the information. It has been
-  successfully tested in analyzing 10-K and 10-Q submissions from US
-  filing companies that are publicly available at the Security and
-  Exchange Commission (SEC) Edgar system.
+  XBRL documents employ many technologies defined by XML standards, such
+  as XML Schema, Namespaces, XLink, and XPath, which make the extraction
+  of information involved. The functions provided by this package
+  address this complexity, returning data frames containing the enclosed
+  information readily available to perform analyses.
 
-  As published taxonomy document files (such as "us-gaap-2013-01-31.xsd")
-  are immutable and are used by most filers, XBRL offers the possibility
-  of downloading them only the first time they are referred, keeping a
-  local cache copy that can be used from then on. This speeds-up
-  the process, specially for slow connections.
+  XBRL has been successfully tested in analyzing 10-K and 10-Q
+  submissions from USA filing companies that are publicly available at
+  the EDGAR system of the Securities and Exchange Commission (SEC). 
+
+  As published taxonomy files (such as
+  "http://xbrl.fasb.org/us-gaap/2013/elts/us-gaap-2013-01-31.xsd") 
+  are immutable and are used by most filers, XBRL offers the option of
+  downloading them only the first time they are referred, keeping a
+  local cache copy that can be used from then on. This speeds-up the
+  process, specially on slow connections.
 
   XBRL is not and does not aim to be (at least yet) a validating XBRL
   processor.
 
   XBRL is still a work in progress. As such, functions and produced data
   frames may change structure in future versions until stabilization.
-
-  To achieve adequate performance, all calls to libxml2 and data
-  population are done in compiled C++ code. An initial version that used
-  the excellent XML package had to be discarded as loops and data
-  population in exclusive R code took excessive time to complete.
 }
 \details{
 \tabular{ll}{
 Package: \tab XBRL\cr
 Type: \tab Package\cr
-Version: \tab 0.99.10\cr
+Version: \tab 0.99.11\cr
 Date: \tab 2014-01-01\cr
 License: \tab GPL (>=2)\cr
 }

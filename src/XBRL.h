@@ -28,8 +28,6 @@
 #include <libxml/parser.h>
 #include <libxml/xpath.h>
 
-// #include <pcrecpp.h>
-
 using namespace std;
 using namespace Rcpp;
 

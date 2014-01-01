@@ -10,9 +10,9 @@
   \code{\link{xbrlParse}}).
   
   The approach used is derived from an example included in *10.7 Scope*
-  of *An Introduction to R*. The employed used here terminology may be
-  inaccurate, hence the quotations. \code{XBRL} "methods" are heavily
-  called by \code{\link{xbrlDoAll}}. See examples of use below.
+  of *An Introduction to R*. The employed terminology may be inaccurate,
+  hence the quotations. \code{XBRL} "methods" are called by
+  \code{\link{xbrlDoAll}}. See examples of use below. 
 }
 \usage{
 XBRL()
