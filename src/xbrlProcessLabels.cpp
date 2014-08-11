@@ -40,16 +40,10 @@ RcppExport SEXP xbrlProcessLabels(SEXP epaDoc) {
   CharacterVector labelString(label_nodeset_ln);
   CharacterVector href(label_nodeset_ln);
 
-  int j=0, k=0;
   for (int i=0; i < label_nodeset_ln; i++) {
     xmlNodePtr label_node = label_nodeset->nodeTab[i];
     xmlChar *label_label = xmlGetProp(label_node, (xmlChar*) "label");
-    // We assume the info appears in an ordered fashion, so labelArc elements
-    // prior to the last one visited cannot be a match for this label.
-    // The last one visited can be a match because there can be multiple labels
-    // (same label identifier with different roles) associated to one labelArc.
-    // If the assumption is wrong, at least it is extremely fast wrong.
-    for (; j < labelArc_nodeset->nodeNr; j++) {
+    for (int j=0; j < labelArc_nodeset->nodeNr; j++) {
       xmlNodePtr labelArc_node = labelArc_nodeset->nodeTab[j];
       xmlChar *labelArc_to = xmlGetProp(labelArc_node, (xmlChar*) "to");
 
@@ -60,8 +54,7 @@ RcppExport SEXP xbrlProcessLabels(SEXP epaDoc) {
       xmlFree(label_label);  // There is a match. Not needed anymore.
 
       xmlChar *labelArc_from = xmlGetProp(labelArc_node, (xmlChar*) "from");
-      // Same reasoning as above, but applied to loc elements.
-      for (; k < loc_nodeset->nodeNr; k++) {
+      for (int k=0; k < loc_nodeset->nodeNr; k++) {
 	xmlNodePtr loc_node = loc_nodeset->nodeTab[k];
 	xmlChar *loc_label = xmlGetProp(loc_node, (xmlChar*) "label");
 				

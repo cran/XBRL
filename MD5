@@ -1,6 +1,6 @@
 eb723b61539feef013de476e68b5c50a *COPYING
-b1bc32e51f7c5b73d8c5b5d34ce335e6 *ChangeLog
-2d10aa9c0153c338079a13b8429f81e6 *DESCRIPTION
+27d655df559fcf0cde92349f52f66538 *ChangeLog
+bd3528a33d02651d8dca636a83e574a6 *DESCRIPTION
 6c148f9a1a7af5bd6d7f70dfaa25399e *INSTALL
 2b01504bf21dbd17688cb8c42d4fc57d *NAMESPACE
 5be837ce37781db8a078e220151eddd0 *R/XBRL.R
@@ -18,6 +18,7 @@ de31906a5a3333f791c33c592866a14e *R/xbrlProcessFacts.R
 ae1b7597309ce259e5a307bac1d2349e *R/xbrlProcessLabels.R
 bb3d0b48e406c3adda59d014bb06df39 *R/xbrlProcessRoles.R
 e21d943721dcf61fcf1e608dbcc841bc *R/xbrlProcessUnits.R
+50001ed8f425b49da92c0286d00bfcd9 *R/xbrlSECdev01.R
 e5b58d2d3f09b1936402311efefc5fa0 *cleanup
 c055367209f35d2c5e9004b429db915e *configure
 2d1091b7eaf6ebfe4055e65b281cef9c *configure.in
@@ -26,6 +27,7 @@ d9da4bd003cf03fdf6fd0c9c1a8edfa5 *inst/COPYRIGHTS
 782654018c6fc90dbf5c50f94ecc47b4 *man/XBRL.Rd
 f9da805ca371d81756ef77c3da92cb28 *man/low-level.Rd
 15d261aca86065719eb0366a35976f74 *man/xbrlDoAll.Rd
+74d3a8b95635dae7eaf8eee76eb5cb4e *man/xbrlSECdev01.Rd
 4fbe70e7dbe0d630320d907129e171b5 *src/Makevars.in
 363947dcf0ab51aee034be42e4f0ec42 *src/Makevars.win
 14f96a0e9e93f0e3cf0fcb64deee808f *src/XBRL.h
@@ -38,7 +40,7 @@ ddf1b0e45d2632d8ec9c1abf018f40e9 *src/xbrlParse.cpp
 6337e2d78771b6a25eb88c9dd5bdeac5 *src/xbrlProcessContexts.cpp
 3adf711be1c510776d6e65eec44b1334 *src/xbrlProcessElements.cpp
 bb7d5a71e82d7c5aa75c9a9047b6309a *src/xbrlProcessFacts.cpp
-0b7bff5bb37d19d5f10bb279ae84ff6c *src/xbrlProcessFootnotes.cpp
-de180190e44059806db1d961101e3977 *src/xbrlProcessLabels.cpp
+cbcca2bfc1eb5a909648433b75fd26c1 *src/xbrlProcessFootnotes.cpp
+342ab00edb2a3c1f67a0e67ad6033c68 *src/xbrlProcessLabels.cpp
 79c0a5258e9ea630dd505725461be6ac *src/xbrlProcessRoles.cpp
 944b26a841d3f15f0d0ae32c8efb67f3 *src/xbrlProcessUnits.cpp

@@ -40,16 +40,11 @@ RcppExport SEXP xbrlProcessFootnotes(SEXP epaDoc) {
   CharacterVector footnoteString(footnoteArc_nodeset_ln);
   CharacterVector href(footnoteArc_nodeset_ln);
 
-  int j=-1;
   for (int i=0; i < footnoteArc_nodeset_ln; i++) {
     xmlNodePtr footnoteArc_node = footnoteArc_nodeset->nodeTab[i];
     xmlChar *footnoteArc_to = xmlGetProp(footnoteArc_node, (xmlChar*) "to");
     xmlChar *footnoteArc_from = xmlGetProp(footnoteArc_node, (xmlChar*) "from");
-    // We assume the info appears in an ordered fashion, so loc elements
-    // prior to the last one visited (and including it) cannot be a match
-    // for this footnoteArc.
-    j++;
-    for (; j < loc_nodeset->nodeNr; j++) {
+    for (int j=0; j < loc_nodeset->nodeNr; j++) {
       xmlNodePtr loc_node = loc_nodeset->nodeTab[j];
       xmlChar *loc_label = xmlGetProp(loc_node, (xmlChar*) "label");
 
