@@ -1,8 +1,8 @@
 eb723b61539feef013de476e68b5c50a *COPYING
-27d655df559fcf0cde92349f52f66538 *ChangeLog
-bd3528a33d02651d8dca636a83e574a6 *DESCRIPTION
+2e7a17b45292d5342ad304fb302d860c *ChangeLog
+1a80e8a2ce31a57e870ec810b91ba618 *DESCRIPTION
 6c148f9a1a7af5bd6d7f70dfaa25399e *INSTALL
-2b01504bf21dbd17688cb8c42d4fc57d *NAMESPACE
+45a951bb3d28e7ec70c395b3e2ffc014 *NAMESPACE
 5be837ce37781db8a078e220151eddd0 *R/XBRL.R
 4f31648bd54641dfe64cd7dc8291abec *R/xbrlDoAll.R
 dfbaacdf38411c68a430eef0ee61dc38 *R/xbrlFree.R
@@ -39,7 +39,7 @@ ddf1b0e45d2632d8ec9c1abf018f40e9 *src/xbrlParse.cpp
 3568c0651f75836fbfaecb283d13bcad *src/xbrlProcessArcs.cpp
 6337e2d78771b6a25eb88c9dd5bdeac5 *src/xbrlProcessContexts.cpp
 3adf711be1c510776d6e65eec44b1334 *src/xbrlProcessElements.cpp
-bb7d5a71e82d7c5aa75c9a9047b6309a *src/xbrlProcessFacts.cpp
+c6946f5fe930a41159a6a72f23d2a375 *src/xbrlProcessFacts.cpp
 cbcca2bfc1eb5a909648433b75fd26c1 *src/xbrlProcessFootnotes.cpp
 342ab00edb2a3c1f67a0e67ad6033c68 *src/xbrlProcessLabels.cpp
 79c0a5258e9ea630dd505725461be6ac *src/xbrlProcessRoles.cpp

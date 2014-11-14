@@ -71,6 +71,9 @@ RcppExport SEXP xbrlProcessFacts(SEXP epaDoc) {
     if ((tmp_str = xmlGetProp(fact_node, (xmlChar*) "id"))) { 
       factId[i] = (char *) tmp_str;
       xmlFree(tmp_str);
+    } else if ((tmp_str = xmlGetProp(fact_node, (xmlChar*) "name"))) { 
+      factId[i] = (char *) tmp_str;
+      xmlFree(tmp_str);
     } else {
       factId[i] = NA_STRING;
     }

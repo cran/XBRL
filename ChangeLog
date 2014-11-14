@@ -1,3 +1,10 @@
+2014-11-14  Roberto Bertolusso  <rbertolusso@rice.edu>
+
+        * Release 0.99.13
+
+        * factId in facts data.frame now uses "name" If "id" is not provided.
+          "id" seems to be used in US-GAAP, while "name" seems to be used in UK-GAAP.
+
 2014-08-11  Roberto Bertolusso  <rbertolusso@rice.edu>
 
         * Release 0.99.12
