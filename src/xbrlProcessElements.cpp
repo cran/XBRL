@@ -41,6 +41,7 @@ RcppExport SEXP xbrlProcessElements(SEXP epaDoc) {
   CharacterVector periodType(element_nodeset_ln);
   CharacterVector abstract(element_nodeset_ln);
   CharacterVector nillable(element_nodeset_ln);
+  CharacterVector balance(element_nodeset_ln);
   CharacterVector ns(element_nodeset_ln);
 
   for (int i=0; i < element_nodeset_ln; i++) {
@@ -83,6 +84,12 @@ RcppExport SEXP xbrlProcessElements(SEXP epaDoc) {
     } else {
       nillable[i] = NA_STRING;
     }
+    if ((tmp_str = xmlGetProp(element_node, (xmlChar*) "balance"))) { 
+      balance[i] = (char *) tmp_str;
+      xmlFree(tmp_str);
+    } else {
+      balance[i] = NA_STRING;
+    }
     ns[i] = (char *) ns_txt;
   }
   xmlFree(ns_txt);
@@ -95,5 +102,6 @@ RcppExport SEXP xbrlProcessElements(SEXP epaDoc) {
 			   Named("periodType")=periodType,
 			   Named("abstract")=abstract,
 			   Named("nillable")=nillable,
+			   Named("balance")=balance,
 			   Named("ns")=ns);
 }

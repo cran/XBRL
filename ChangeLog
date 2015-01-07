@@ -1,3 +1,9 @@
+2015-01-07  Roberto Bertolusso  <rbertolusso@rice.edu>
+
+        * Release 0.99.14
+
+        * balance was added to instance data.frame.
+
 2014-11-14  Roberto Bertolusso  <rbertolusso@rice.edu>
 
         * Release 0.99.13
