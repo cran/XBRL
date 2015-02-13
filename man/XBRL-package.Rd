@@ -3,11 +3,10 @@
 \docType{package}
 \title{Extraction of business financial information from XBRL documents.}
 \description{
-  XBRL is a package suited to extract business financial information from
+  Functions to extract business financial information from
   an Extensible Business Reporting Language (XBRL) instance file and the
   associated collection of files that defines its Discoverable Taxonomy
-  Set (DTS). These files are usually disseminated across different remote
-  locations.
+  Set (DTS), usually disseminated across different remote locations.
 
   XBRL documents employ many technologies defined by XML standards, such
   as XML Schema, Namespaces, XLink, and XPath, which make the extraction
@@ -17,7 +16,8 @@
 
   XBRL has been successfully tested in analyzing 10-K and 10-Q
   submissions from USA filing companies that are publicly available at
-  the EDGAR system of the Securities and Exchange Commission (SEC). 
+  the EDGAR system of the Securities and Exchange Commission (SEC).
+  It has been reported to work with inline XBRL documents.
 
   As published taxonomy files (such as
   "http://xbrl.fasb.org/us-gaap/2013/elts/us-gaap-2013-01-31.xsd") 

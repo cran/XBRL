@@ -1,3 +1,11 @@
+2015-02-13  Roberto Bertolusso  <rbertolusso@rice.edu>
+
+        * Release 0.99.15
+
+        * ProcessFacts does not crash anymore when the namespace reference is missing.
+
+        * Reported to work with inline XBRL documents.
+
 2015-01-07  Roberto Bertolusso  <rbertolusso@rice.edu>
 
         * Release 0.99.14

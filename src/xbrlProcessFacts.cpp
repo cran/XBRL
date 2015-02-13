@@ -1,6 +1,6 @@
 // -*- mode: C++; c-indent-level: 2; c-basic-offset: 2; tab-width: 8 -*-
 //
-// Copyright (C) 2014 Roberto Bertolusso and Marek Kimmel
+// Copyright (C) 2014-2015 Roberto Bertolusso and Marek Kimmel
 //
 // This file is part of XBRL.
 //
@@ -41,7 +41,10 @@ RcppExport SEXP xbrlProcessFacts(SEXP epaDoc) {
   for (int i=0; i < fact_nodeset_ln; i++) {
     xmlNodePtr fact_node = fact_nodeset->nodeTab[i];
 
-    elementId[i] = (char *) ((string) (char *) fact_node->ns->prefix + "_" + (string) (char *) fact_node->name).data();
+    if (fact_node->ns->prefix)
+      elementId[i] = (char *) ((string) (char *) fact_node->ns->prefix + "_" + (string) (char *) fact_node->name).data();
+    else
+      elementId[i] = (char *) fact_node->name;
 
     xmlChar *tmp_str;
     if ((tmp_str = xmlGetProp(fact_node, (xmlChar*) "contextRef"))) { 
