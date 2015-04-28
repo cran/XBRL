@@ -1,3 +1,9 @@
+2015-04-28  Roberto Bertolusso  <rbertolusso@rice.edu>
+
+        * Release 0.99.16
+
+        * Added "scale" and "sign" to facts data.frame as it is used in UK-GAAP.
+
 2015-02-13  Roberto Bertolusso  <rbertolusso@rice.edu>
 
         * Release 0.99.15

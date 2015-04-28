@@ -1,4 +1,4 @@
-AC_INIT([XBRL], 0.99.11)
+AC_INIT([XBRL], 0.99.16)
 
 ## Use Rscript to query Rcpp for compiler and linker flags
 ## link flag providing library as well as path to library,

@@ -35,6 +35,8 @@ RcppExport SEXP xbrlProcessFacts(SEXP epaDoc) {
   CharacterVector unitId(fact_nodeset_ln);
   CharacterVector fact(fact_nodeset_ln);
   CharacterVector decimals(fact_nodeset_ln);
+  CharacterVector sign(fact_nodeset_ln);
+  CharacterVector scale(fact_nodeset_ln);
   CharacterVector factId(fact_nodeset_ln);
   CharacterVector ns(fact_nodeset_ln);
 
@@ -71,6 +73,18 @@ RcppExport SEXP xbrlProcessFacts(SEXP epaDoc) {
     } else {
       decimals[i] = NA_STRING;
     }
+    if ((tmp_str = xmlGetProp(fact_node, (xmlChar*) "scale"))) { 
+      scale[i] = (char *) tmp_str;
+      xmlFree(tmp_str);
+    } else {
+      scale[i] = NA_STRING;
+    }
+    if ((tmp_str = xmlGetProp(fact_node, (xmlChar*) "sign"))) { 
+      sign[i] = (char *) tmp_str;
+      xmlFree(tmp_str);
+    } else {
+      sign[i] = NA_STRING;
+    }
     if ((tmp_str = xmlGetProp(fact_node, (xmlChar*) "id"))) { 
       factId[i] = (char *) tmp_str;
       xmlFree(tmp_str);
@@ -89,6 +103,8 @@ RcppExport SEXP xbrlProcessFacts(SEXP epaDoc) {
 			   Named("unitId")=unitId,
 			   Named("fact")=fact,
 			   Named("decimals")=decimals,
+			   Named("scale")=scale,
+			   Named("sign")=sign,
 			   Named("factId")=factId,
 			   Named("ns")=ns);
 }

@@ -1,39 +1,21 @@
 Package: XBRL
 Type: Package
-Title: Extraction of Business Financial Information from XBRL Documents
-Version: 0.99.15
-Date: 2015-02-13
+Title: Extraction of Business Financial Information from 'XBRL'
+        Documents
+Version: 0.99.16
+Date: 2015-04-28
 Author: Roberto Bertolusso and Marek Kimmel
 Maintainer: Roberto Bertolusso <rbertolusso@rice.edu>
 Description: 
   Functions to extract business financial information from
-  an Extensible Business Reporting Language (XBRL) instance file and the
-  associated collection of files that defines its Discoverable Taxonomy
-  Set (DTS), usually disseminated across different remote locations.
-  XBRL documents employ many technologies defined by XML standards, such
-  as XML Schema, Namespaces, XLink, and XPath, which make the extraction
-  of information involved. The functions provided by this package
-  address this complexity, returning data frames containing the enclosed
-  information readily available to perform analyses.
-  XBRL has been successfully tested in analyzing 10-K and 10-Q
-  submissions from USA filing companies that are publicly available at
-  the EDGAR system of the Securities and Exchange Commission (SEC).
-  It has been reported to work with inline XBRL documents.
-  As published taxonomy files (such as
-  "http://xbrl.fasb.org/us-gaap/2013/elts/us-gaap-2013-01-31.xsd") 
-  are immutable and are used by most filers, XBRL offers the option of
-  downloading them only the first time they are referred, keeping a
-  local cache copy that can be used from then on. This speeds-up the
-  process, specially on slow connections.
-  XBRL is not and does not aim to be (at least yet) a validating XBRL
-  processor.
-  XBRL is still a work in progress. As such, functions and produced data
-  frames may change structure in future versions until stabilization.
+  an Extensible Business Reporting Language ('XBRL') instance file and the
+  associated collection of files that defines its 'Discoverable' Taxonomy
+  Set ('DTS').
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.10.4)
 SystemRequirements: libxml2 (>= 2.9.1)
 LinkingTo: Rcpp
-Packaged: 2015-02-13 17:26:30 UTC; mame
+Packaged: 2015-04-29 13:11:41 UTC; mame
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2015-02-13 20:22:53
+Date/Publication: 2015-04-29 16:23:33
