@@ -11,7 +11,8 @@
   \code{\link{xbrlParse}}.
 }
 \usage{
-xbrlDoAll(file.inst, cache.dir=NULL, prefix.out=NULL, verbose=FALSE)
+xbrlDoAll(file.inst, cache.dir = "xbrl.Cache", prefix.out = NULL,
+          verbose = FALSE, delete.cached.inst = TRUE)
 }
 \arguments{
   \item{file.inst}{the name of the instance file}
@@ -21,6 +22,8 @@ xbrlDoAll(file.inst, cache.dir=NULL, prefix.out=NULL, verbose=FALSE)
     content of the data frames produced}
   \item{verbose}{Set to TRUE to see output of the process of discovery
   and analysis if documents}
+  \item{delete.cached.inst}{Set to TRUE to delete downloaded instance,
+  schema and linkbase files}
 }
 \value{a list of data frames with extracted information}
 \author{
@@ -30,15 +33,15 @@ Roberto Bertolusso and Marek Kimmel
   \code{\link{XBRL}}, \code{\link{xbrlParse}}
 }
 \examples{
+\dontrun{
 ## Setting stringsAsFactors = FALSE is highly recommended
 ## to avoid data frames to create factors from character vectors.
 options(stringsAsFactors = FALSE)
 
 ## XBRL instance file to be analyzed, accessed
 ## directly from SEC website:
-inst <- "http://www.sec.gov/Archives/edgar/data/21344/000002134413000050/ko-20130927.xml"
+inst <- "https://www.sec.gov/Archives/edgar/data/21344/000002134413000050/ko-20130927.xml"
 
-\dontrun{
 xbrl.vars <- xbrlDoAll(inst, cache.dir="XBRLcache", prefix.out="out", verbose=TRUE)
 }
 }

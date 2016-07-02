@@ -74,14 +74,15 @@ Roberto Bertolusso and Marek Kimmel
   \code{\link{xbrlDoAll}}
 }
 \examples{
+\dontrun{
 ## Setting stringsAsFactors = FALSE is highly recommended
 ## to avoid data frames to create factors from character vectors.
 options(stringsAsFactors = FALSE)
 
-## XBRL instance file to be analyzed, accessed
-## directly from SEC website:
-inst <- "http://www.sec.gov/Archives/edgar/data/21344/000002134413000050/ko-20130927.xml"
-
+## XBRL instance file to be analyzed.
+## NOTE: in this case, inst needs to be a local file, or accessible
+##       as http (not https).
+inst <- "ko-20130927.xml"
 ## Parse the instance (doc is an pointer to
 ## external memory that needs to be freed after use):
 doc <- xbrlParse(inst)
@@ -103,6 +104,7 @@ rls <- xbrlProcessRoles(docS)
 head(rls)
 ## Free the external memory used:
 xbrlFree(docS)
+}
 }
 \keyword{XBRL}
 \keyword{low-level}

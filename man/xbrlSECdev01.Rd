@@ -27,15 +27,15 @@ Roberto Bertolusso and Marek Kimmel
   \code{\link{xbrlDoAll}}, \code{\link{xbrlParse}}
 }
 \examples{
+\dontrun{
 ## Setting stringsAsFactors = FALSE is highly recommended
 ## to avoid data frames to create factors from character vectors.
 options(stringsAsFactors = FALSE)
 
 ## XBRL instance file to be analyzed, accessed
 ## directly from SEC website:
-inst <- "http://www.sec.gov/Archives/edgar/data/21344/000002134413000050/ko-20130927.xml"
+inst <- "https://www.sec.gov/Archives/edgar/data/21344/000002134413000050/ko-20130927.xml"
 
-\dontrun{
 xbrl.vars <- xbrlDoAll(inst)
 xbrl.sec <- xbrlSECdev01(xbrl.vars)
 xbrl.sec$showPresentationHierarchy(showLabels=TRUE, showFacts=TRUE)

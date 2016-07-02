@@ -28,6 +28,7 @@ XBRL <- function() {
   doc.inst <- NULL
   dname.inst <- NULL
   verbose <- FALSE
+  inst.lnkb <- NULL
   
   fixFileName <- function(dname, file.name) {
     if (substr(file.name, 1, 5) != "http:") {
@@ -56,13 +57,24 @@ XBRL <- function() {
   }
   
   fileFromCache <- function(file) {
+    if (!(gsub("^(http|https|ftp)://.*$", "\\1", file) %in% c("http", "https", "ftp"))) {
+      return (file)
+    }
     bname <- basename(file)
     cached.file <- paste0(cache.dir, "/", bname)
     if (!file.exists(cached.file)) {
       if (verbose) {
         cat("Downloading to cache dir...")
       }
-      download.file(file, cached.file, method="auto", quiet = !verbose)
+
+      status <- try(download.file(file, cached.file, method="auto", quiet = !verbose),
+                    silent=TRUE)
+
+      if (class(status)[1] == "try-error" || status == 1) {
+        unlink(cached.file)
+        stop(status, "\n")
+      }
+      
     } else {
       if (verbose) {
         cat("Using file from cache dir...\n")
@@ -73,7 +85,22 @@ XBRL <- function() {
   
   openInstance <- function(file.inst) {
     dname.inst <<- dirname(file.inst)
-    doc.inst <<- .Call("xbrlParse", file.inst, PACKAGE="XBRL")
+    if (!is.null(cache.dir)) {
+      file.inst <- fileFromCache(file.inst)
+      inst.lnkb <<- file.inst
+    }
+    doc.inst <<- XBRL::xbrlParse(file.inst)
+  }
+  
+  deleteCachedInstance <- function() {
+    if (verbose) {
+      cat("Deleting the following downloaded and/or cached files...\n")
+      print(inst.lnkb)
+    }
+    unlink(inst.lnkb)
+    if (verbose) {
+      cat("Done...\n")
+    }
   }
   
   getSchemaName <- function() {
@@ -92,11 +119,18 @@ XBRL <- function() {
     }
     discovered.files <<- c(discovered.files, file)
     dname <- dirname(file)
-    if (level > 1 && !is.null(cache.dir)) {
+    if (level >= 1 && !is.null(cache.dir)) {
+      if (verbose) {
+        cat("Level:", level,  "==>", file, "\n")
+      }
       file <- fileFromCache(file)
+      if (level == 1) {
+        inst.lnkb <<- c(inst.lnkb, file)
+      }
     }
-    
-    doc <- .Call("xbrlParse", file, PACKAGE="XBRL")
+
+    doc <- XBRL::xbrlParse(file)
+
     if (level == 1) {
       processRoles(doc)
     }
@@ -149,10 +183,14 @@ XBRL <- function() {
       return (NULL)
     }
     discovered.files <<- c(discovered.files, file)
-    if (level > 2 && !is.null(cache.dir)) {
+    if (level >= 2 && !is.null(cache.dir)) {
+      if (verbose) {
+        cat("Level:", level,  "==>", file, "\n")
+      }
       file <- fileFromCache(file)
+      inst.lnkb <<- c(inst.lnkb, file)
     }
-    doc <- .Call("xbrlParse", file, PACKAGE="XBRL")
+    doc <- XBRL::xbrlParse(file)
 
     ## We assume there can be only one type per linkbase file
     if (!processLabels(doc)) {
@@ -257,6 +295,7 @@ XBRL <- function() {
   list(setVerbose=setVerbose,
        setCacheDir=setCacheDir,
        openInstance=openInstance,
+       deleteCachedInstance=deleteCachedInstance,
        getSchemaName=getSchemaName,
        processSchema=processSchema,
        processContexts=processContexts,

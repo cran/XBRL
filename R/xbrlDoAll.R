@@ -18,7 +18,9 @@
 ## along with XBRL. If not, see <http://www.gnu.org/licenses/>.
 
 
-xbrlDoAll <- function(file.inst, cache.dir=NULL, prefix.out=NULL, verbose=FALSE) {
+xbrlDoAll <- function(file.inst, cache.dir="xbrl.Cache",
+                      prefix.out=NULL, verbose=FALSE,
+                      delete.cached.inst=TRUE) {
   xbrl <- XBRL()
   xbrl$setVerbose(verbose)
   if (!is.null(cache.dir)) { 
@@ -31,6 +33,10 @@ xbrlDoAll <- function(file.inst, cache.dir=NULL, prefix.out=NULL, verbose=FALSE)
   xbrl$processUnits()
   xbrl$processFootnotes()
   xbrl$closeInstance()
+  if (delete.cached.inst &&
+      gsub("^(http|https|ftp)://.*$", "\\1", file.inst) %in% c("http", "https", "ftp")) {
+    xbrl$deleteCachedInstance()
+  }
   
   xbrl.vars <- xbrl$getResults()
   if (!is.null(prefix.out)) {

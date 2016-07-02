@@ -1,3 +1,15 @@
+2016-07-01  Roberto Bertolusso  <rbertolusso@rice.edu>
+
+        * Release 0.99.17
+
+        * All files need to be downloaded, as SEC has moved from
+          http to https and xml2 does not know how to handle
+          https protocol. xbrlDoAll will specify a default
+          cache directory (xbrl.Cache) if none is provided.
+          Downloaded instance and related files are deleted
+          by default after processing, to mantain same
+          previous functionality.
+
 2015-04-28  Roberto Bertolusso  <rbertolusso@rice.edu>
 
         * Release 0.99.16

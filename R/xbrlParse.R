@@ -19,5 +19,8 @@
 
 
 xbrlParse <- function(file) {
+  if(!file.exists(file)) {
+    stop(file, " does not exists. Aborting.\n")
+  }
   .Call("xbrlParse", file, PACKAGE="XBRL")
 }
