@@ -1,4 +1,4 @@
-useDynLib(XBRL)
+useDynLib(XBRL, .registration = TRUE)
 import(Rcpp)
 importFrom("utils", "download.file", "write.csv")
 exportPattern("^[[:alpha:]]+")

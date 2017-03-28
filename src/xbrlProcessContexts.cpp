@@ -1,6 +1,4 @@
-// -*- mode: C++; c-indent-level: 2; c-basic-offset: 2; tab-width: 8 -*-
-//
-// Copyright (C) 2014-2015 Roberto Bertolusso and Marek Kimmel
+// Copyright (C) 2014-2016 Roberto Bertolusso
 //
 // This file is part of XBRL.
 //

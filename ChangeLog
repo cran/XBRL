@@ -1,3 +1,9 @@
+2017-03-27  Roberto Bertolusso  <rbertolusso@rice.edu>
+
+        * Release 0.99.18
+
+        * Removed, from download.file, method='auto'.
+
 2016-07-01  Roberto Bertolusso  <rbertolusso@rice.edu>
 
         * Release 0.99.17

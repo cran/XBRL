@@ -1,6 +1,4 @@
-## -*- ess-indent-level: 2; ess-basic-offset: 2; tab-width: 8 -*-
-##
-## Copyright (C) 2014-2015 Roberto Bertolusso and Marek Kimmel
+## Copyright (C) 2014-2016 Roberto Bertolusso
 ##
 ## This file is part of XBRL.
 ##
@@ -67,7 +65,7 @@ XBRL <- function() {
         cat("Downloading to cache dir...")
       }
 
-      status <- try(download.file(file, cached.file, method="auto", quiet = !verbose),
+      status <- try(download.file(file, cached.file, quiet = !verbose),
                     silent=TRUE)
 
       if (class(status)[1] == "try-error" || status == 1) {
