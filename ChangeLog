@@ -1,3 +1,9 @@
+2021-10-18  Roberto Bertolusso  <rbertolusso@rice.edu>
+
+        * Release 0.99.19
+
+        * Renamed configure.in to configure.ac
+
 2017-03-27  Roberto Bertolusso  <rbertolusso@rice.edu>
 
         * Release 0.99.18

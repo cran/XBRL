@@ -2,8 +2,8 @@ Package: XBRL
 Type: Package
 Title: Extraction of Business Financial Information from 'XBRL'
         Documents
-Version: 0.99.18
-Date: 2017-03-27
+Version: 0.99.19
+Date: 2021-10-18
 Author: Roberto Bertolusso
 Maintainer: Roberto Bertolusso <rbertolusso@rice.edu>
 Description: 
@@ -16,6 +16,6 @@ Imports: utils, Rcpp (>= 0.10.4)
 SystemRequirements: libxml2 (>= 2.9.1)
 LinkingTo: Rcpp
 NeedsCompilation: yes
-Packaged: 2017-03-27 17:18:01 UTC; mame
+Packaged: 2021-10-18 14:21:34 UTC; mame
 Repository: CRAN
-Date/Publication: 2017-03-28 08:45:35 UTC
+Date/Publication: 2021-10-18 14:50:02 UTC

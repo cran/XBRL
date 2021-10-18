@@ -1,4 +1,4 @@
-AC_INIT([XBRL], 0.99.17OC)
+AC_INIT([XBRL], 0.99.19OC)
 
 ## Use Rscript to query Rcpp for compiler and linker flags
 ## link flag providing library as well as path to library,
@@ -28,4 +28,4 @@ AC_SUBST(RCPP_LDFLAGS)
 AC_SUBST(XML2_CPPFLAGS)
 AC_SUBST(XML2_LIBS)
 
-AC_OUTPUT(src/Makevars)
+AC_OUTPUT()
