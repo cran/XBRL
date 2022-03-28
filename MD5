@@ -1,6 +1,6 @@
 eb723b61539feef013de476e68b5c50a *COPYING
 26e5dea2be54e926fd286fe55032bcda *ChangeLog
-975bd199dc3a55f3ecf498b1b9da8380 *DESCRIPTION
+9ab29077beecb7e990571ad0889ca666 *DESCRIPTION
 6c148f9a1a7af5bd6d7f70dfaa25399e *INSTALL
 e6beba900048f1edc929fc9aa5b83993 *NAMESPACE
 42fa29d420a37514fd25533aa1077ee6 *R/XBRL.R
@@ -29,6 +29,7 @@ bac8d633907280aab8d24d96100703aa *man/low-level.Rd
 75fac4c6856dc3786f3510db6751ae89 *man/xbrlDoAll.Rd
 8462af254c75b8d1bde7ecfc6cf8da43 *man/xbrlSECdev01.Rd
 4fbe70e7dbe0d630320d907129e171b5 *src/Makevars.in
+32e4d939bec190c3395de119a7b068f8 *src/Makevars.ucrt
 363947dcf0ab51aee034be42e4f0ec42 *src/Makevars.win
 8dde062a81294e6d3150a98335110325 *src/XBRL.h
 4500bdad1151253e0d0810e899325e38 *src/registerDynamicSymbol.c
